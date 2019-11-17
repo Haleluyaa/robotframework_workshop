@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20191117 15:03:28.962" generator="Robot 3.0.4 (Python 2.7.15 on darwin)">
+<suite source="/Users/thanawitchaisuphapsirikun/Projects/Automate_Testing/RobotFramework/Facebook_Automate/Login_Auto.robot" id="s1" name="Login Auto">
+<test id="s1-t1" name="Valid Credentials">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20191117 15:03:29.107" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com'.</msg>
+<status status="PASS" endtime="20191117 15:03:36.277" starttime="20191117 15:03:29.107"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20191117 15:03:36.443" starttime="20191117 15:03:36.277"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELEY}</arg>
+</arguments>
+<status status="PASS" endtime="20191117 15:03:36.443" starttime="20191117 15:03:36.443"></status>
+</kw>
+<status status="PASS" endtime="20191117 15:03:36.443" starttime="20191117 15:03:29.107"></status>
+</kw>
+<kw name="Login with Valid Credentials Successful">
+<arguments>
+<arg>${VALID USERNAME}</arg>
+<arg>${VALID PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='email']</arg>
+<arg>${VALID USERNAME}</arg>
+</arguments>
+<msg timestamp="20191117 15:03:36.444" level="INFO">Typing text 'haleluyaa.aki@gmail.com' into text field '//input[@id='email']'.</msg>
+<status status="PASS" endtime="20191117 15:03:36.622" starttime="20191117 15:03:36.444"></status>
+</kw>
+<status status="PASS" endtime="20191117 15:03:36.622" starttime="20191117 15:03:36.444"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='pass']</arg>
+<arg>${VALID USERNAME}</arg>
+</arguments>
+<msg timestamp="20191117 15:03:36.623" level="INFO">Typing text 'haleluyaa.aki@gmail.com' into text field '//input[@id='pass']'.</msg>
+<status status="PASS" endtime="20191117 15:03:36.733" starttime="20191117 15:03:36.623"></status>
+</kw>
+<status status="PASS" endtime="20191117 15:03:36.734" starttime="20191117 15:03:36.623"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>//input[contains(@type, 'submit')]</arg>
+</arguments>
+<msg timestamp="20191117 15:03:36.734" level="INFO">Clicking button '//input[contains(@type, 'submit')]'.</msg>
+<status status="PASS" endtime="20191117 15:03:45.313" starttime="20191117 15:03:36.734"></status>
+</kw>
+<status status="PASS" endtime="20191117 15:03:45.313" starttime="20191117 15:03:36.734"></status>
+</kw>
+<status status="PASS" endtime="20191117 15:03:45.313" starttime="20191117 15:03:36.444"></status>
+</kw>
+<status status="PASS" endtime="20191117 15:03:45.313" critical="yes" starttime="20191117 15:03:29.106"></status>
+</test>
+<status status="PASS" endtime="20191117 15:03:45.314" starttime="20191117 15:03:28.964"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Login Auto" pass="1">Login Auto</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
