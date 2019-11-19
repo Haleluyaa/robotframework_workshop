@@ -9,7 +9,7 @@ ${DELEY}    0
 ${VALID USERNAME}    haleluyaa.aki@gmail.com
 ${VALID PASSWORD}    @Chai4704183;
 ${line_token}    3twZqE76XkRIldgV4DhO0XohPKRA5OGeTrClGT53ie0
-${message}    Hello boy 
+${message}    Hello boy
 
 *** Keywords ***
 Open Browser To Login Page
@@ -32,4 +32,5 @@ Submit Credentials
 Line Notification
     [Arguments]    ${line_token}    ${message}
     Set Line Token    ${line_token}
-    Line Text    ${message}       
+    Line Text    ${message}  
+    Line Sticker    2    507
