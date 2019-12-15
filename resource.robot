@@ -9,8 +9,12 @@ ${DELEY}    0
 ${VALID USERNAME}    haleluyaa.aki@gmail.com
 ${VALID PASSWORD}    xxxxxxx
 ${line_token}    3twZqE76XkRIldgV4DhO0XohPKRA5OGeTrClGT53ie0
+<<<<<<< HEAD
 ${message}    Fail happen!!! 
 
+=======
+${message}    Hello boy
+>>>>>>> 1fca072e883e2b8808e53544ee1819cbc7918245
 
 *** Keywords ***
 Open Browser To Login Page
@@ -42,6 +46,11 @@ Verify Login sucessful
 Line Notification
     [Arguments]    ${line_token}    ${message}
     Set Line Token    ${line_token}
+<<<<<<< HEAD
     Line Text    ${message}
     Line sticker    2    154
     Line pic    D://Initial Training//Software coding//Software Testing//Robot//robotframework_workshop//selenium-screenshot-26.png      
+=======
+    Line Text    ${message}  
+    Line Sticker    2    507
+>>>>>>> 1fca072e883e2b8808e53544ee1819cbc7918245
