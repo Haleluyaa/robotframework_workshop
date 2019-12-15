@@ -1,4 +1,4 @@
-*** Settings ***   
+*** Settings ***  
 Test Setup    Open Browser To Login Page
 Test Template    Login with Valid Credentials Successful
 Resource    resource.robot
@@ -10,10 +10,11 @@ Valid Credentials    ${VALID USERNAME}    ${VALID PASSWORD}
 *** Keywords ***
 Login with Valid Credentials Successful
     [Arguments]    ${username}    ${password}
+
     Input Username    ${username}
     Input Password    ${password}
     Submit Credentials
     Verify Login sucessful
-    #Line Notification    ${line_token}    ${message}    
+     
 
     

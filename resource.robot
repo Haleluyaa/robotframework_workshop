@@ -1,20 +1,18 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ./LineNoti.py
+Library    ExcelLibrary
 
 *** Variable ***
 ${SERVER}    https://www.facebook.com
 ${BROWSER}    chrome
 ${DELEY}    0
-${VALID USERNAME}    haleluyaa.aki@gmail.com
-${VALID PASSWORD}    xxxxxxx
+&{VALID USERNAME}    
+&{VALID PASSWORD}    
 ${line_token}    3twZqE76XkRIldgV4DhO0XohPKRA5OGeTrClGT53ie0
-<<<<<<< HEAD
-${message}    Fail happen!!! 
+${message}    Fail happen!!!
+${excel_path}    D:\Initial Training\Software coding\Software Testing\Robot\robotframework_workshop\Facebook_testingxlsx.xlsx
 
-=======
-${message}    Hello boy
->>>>>>> 1fca072e883e2b8808e53544ee1819cbc7918245
 
 *** Keywords ***
 Open Browser To Login Page
@@ -46,11 +44,12 @@ Verify Login sucessful
 Line Notification
     [Arguments]    ${line_token}    ${message}
     Set Line Token    ${line_token}
-<<<<<<< HEAD
     Line Text    ${message}
     Line sticker    2    154
-    Line pic    D://Initial Training//Software coding//Software Testing//Robot//robotframework_workshop//selenium-screenshot-26.png      
-=======
-    Line Text    ${message}  
-    Line Sticker    2    507
->>>>>>> 1fca072e883e2b8808e53544ee1819cbc7918245
+    Line pic    D:/Initial Training/Software coding/Software Testing/Robot/robotframework_workshop
+
+Import Test Data
+    Open Excel Current Directory    ${excel_path}
+    ${row_count}=    Get Row Count    Login_valid
+    
+    
