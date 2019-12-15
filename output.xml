@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20191119 14:57:11.925" generator="Robot 3.0.4 (Python 2.7.15 on darwin)">
-<suite source="/Users/thanawitchaisuphapsirikun/Projects/Automate_Testing/RobotFramework/robotframework_workshop/Login_Auto.robot" id="s1" name="Login Auto">
+<robot generator="Robot 3.1.2 (Python 3.7.5 on win32)" generated="20191215 18:04:02.484" rpa="false">
+<suite id="s1" name="Login Auto" source="D:\Initial Training\Software coding\Software Testing\Robot\robotframework_workshop\Login_Auto.robot">
 <test id="s1-t1" name="Valid Credentials">
-<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser To Login Page" library="resource" type="setup">
 <kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the given ``url``.</doc>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
 <arg>${SERVER}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20191119 14:57:12.062" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com'.</msg>
-<status status="PASS" endtime="20191119 14:57:22.663" starttime="20191119 14:57:12.061"></status>
+<msg timestamp="20191215 18:04:02.718" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com'.</msg>
+<status status="PASS" starttime="20191215 18:04:02.718" endtime="20191215 18:04:10.493"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20191119 14:57:22.835" starttime="20191119 14:57:22.663"></status>
+<status status="PASS" starttime="20191215 18:04:10.493" endtime="20191215 18:04:14.621"></status>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELEY}</arg>
 </arguments>
-<status status="PASS" endtime="20191119 14:57:22.835" starttime="20191119 14:57:22.835"></status>
+<status status="PASS" starttime="20191215 18:04:14.621" endtime="20191215 18:04:14.621"></status>
 </kw>
-<status status="PASS" endtime="20191119 14:57:22.835" starttime="20191119 14:57:12.061"></status>
+<status status="PASS" starttime="20191215 18:04:02.718" endtime="20191215 18:04:14.621"></status>
 </kw>
 <kw name="Login with Valid Credentials Successful">
 <arguments>
@@ -35,88 +35,156 @@
 <arg>${username}</arg>
 </arguments>
 <kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>//input[@id='email']</arg>
 <arg>${VALID USERNAME}</arg>
 </arguments>
-<msg timestamp="20191119 14:57:22.837" level="INFO">Typing text 'haleluyaa.aki@gmail.com' into text field '//input[@id='email']'.</msg>
-<status status="PASS" endtime="20191119 14:57:23.487" starttime="20191119 14:57:22.836"></status>
+<msg timestamp="20191215 18:04:14.625" level="INFO">Typing text 'haleluyaa.aki@gmail.com' into text field '//input[@id='email']'.</msg>
+<status status="PASS" starttime="20191215 18:04:14.625" endtime="20191215 18:04:14.805"></status>
 </kw>
-<status status="PASS" endtime="20191119 14:57:23.487" starttime="20191119 14:57:22.836"></status>
+<status status="PASS" starttime="20191215 18:04:14.624" endtime="20191215 18:04:14.805"></status>
 </kw>
 <kw name="Input Password" library="resource">
 <arguments>
 <arg>${password}</arg>
 </arguments>
 <kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>//input[@id='pass']</arg>
-<arg>${VALID USERNAME}</arg>
+<arg>${VALID PASSWORD}</arg>
 </arguments>
-<msg timestamp="20191119 14:57:23.488" level="INFO">Typing text 'haleluyaa.aki@gmail.com' into text field '//input[@id='pass']'.</msg>
-<status status="PASS" endtime="20191119 14:57:23.611" starttime="20191119 14:57:23.488"></status>
+<msg timestamp="20191215 18:04:14.806" level="INFO">Typing text 'xxxxxxx' into text field '//input[@id='pass']'.</msg>
+<status status="PASS" starttime="20191215 18:04:14.806" endtime="20191215 18:04:14.886"></status>
 </kw>
-<status status="PASS" endtime="20191119 14:57:23.611" starttime="20191119 14:57:23.487"></status>
+<status status="PASS" starttime="20191215 18:04:14.805" endtime="20191215 18:04:14.886"></status>
 </kw>
 <kw name="Submit Credentials" library="resource">
 <kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks button identified by ``locator``.</doc>
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>//input[contains(@type, 'submit')]</arg>
 </arguments>
-<msg timestamp="20191119 14:57:23.612" level="INFO">Clicking button '//input[contains(@type, 'submit')]'.</msg>
-<status status="PASS" endtime="20191119 14:57:26.279" starttime="20191119 14:57:23.612"></status>
+<msg timestamp="20191215 18:04:14.886" level="INFO">Clicking button '//input[contains(@type, 'submit')]'.</msg>
+<status status="PASS" starttime="20191215 18:04:14.886" endtime="20191215 18:04:18.172"></status>
 </kw>
-<status status="PASS" endtime="20191119 14:57:26.279" starttime="20191119 14:57:23.611"></status>
+<status status="PASS" starttime="20191215 18:04:14.886" endtime="20191215 18:04:18.172"></status>
 </kw>
+<kw name="Verify Login sucessful" library="resource">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Page Should Contain Element</arg>
+<arg>//div[text()='ธนาวิทย์ ชัยสุภาพสิริกุล']</arg>
+</arguments>
+<assign>
+<var>${CheckRs}</var>
+</assign>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>//div[text()='ธนาวิทย์ ชัยสุภาพสิริกุล']</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20191215 18:04:18.591" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20191215 18:04:18.217" endtime="20191215 18:04:18.592"></status>
+</kw>
+<msg timestamp="20191215 18:04:18.593" level="FAIL">Page should have contained element '//div[text()='ธนาวิทย์ ชัยสุภาพสิริกุล']' but did not.</msg>
+<status status="FAIL" starttime="20191215 18:04:18.173" endtime="20191215 18:04:18.593"></status>
+</kw>
+<msg timestamp="20191215 18:04:18.593" level="INFO">${CheckRs} = False</msg>
+<status status="PASS" starttime="20191215 18:04:18.173" endtime="20191215 18:04:18.593"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${CheckRs}</arg>
+<arg>Line Notification</arg>
+<arg>${line_token}</arg>
+<arg>${message}</arg>
+</arguments>
 <kw name="Line Notification" library="resource">
 <arguments>
 <arg>${line_token}</arg>
 <arg>${message}</arg>
 </arguments>
-<kw name="Set Line Token">
+<kw name="Set Line Token" library="LineNoti">
+<doc>Arguments:
+| line_token      |  An access token for authentication  |</doc>
 <arguments>
 <arg>${line_token}</arg>
 </arguments>
-<msg timestamp="20191119 14:57:26.284" level="FAIL">No keyword with name 'Set Line Token' found.</msg>
-<status status="FAIL" endtime="20191119 14:57:26.284" starttime="20191119 14:57:26.284"></status>
+<status status="PASS" starttime="20191215 18:04:18.594" endtime="20191215 18:04:18.594"></status>
 </kw>
-<status status="FAIL" endtime="20191119 14:57:26.284" starttime="20191119 14:57:26.279"></status>
+<kw name="Line Text" library="LineNoti">
+<doc>Arguments:
+|   message     |       1000 characters max  |</doc>
+<arguments>
+<arg>${message}</arg>
+</arguments>
+<msg timestamp="20191215 18:04:19.099" level="INFO">{"status":200,"message":"ok"}</msg>
+<status status="PASS" starttime="20191215 18:04:18.594" endtime="20191215 18:04:19.100"></status>
 </kw>
-<status status="FAIL" endtime="20191119 14:57:26.284" starttime="20191119 14:57:22.836"></status>
+<kw name="Line Sticker" library="LineNoti">
+<doc>Arguments:
+|   PackageId     |  https://devdocs.line.me/files/sticker_list.pdf |
+|   StickerId     |  https://devdocs.line.me/files/sticker_list.pdf |</doc>
+<arguments>
+<arg>2</arg>
+<arg>154</arg>
+</arguments>
+<msg timestamp="20191215 18:04:19.582" level="INFO">{"status":200,"message":"ok"}</msg>
+<status status="PASS" starttime="20191215 18:04:19.100" endtime="20191215 18:04:19.583"></status>
 </kw>
-<status status="FAIL" endtime="20191119 14:57:26.284" critical="yes" starttime="20191119 14:57:12.061">No keyword with name 'Set Line Token' found.</status>
+<kw name="Line Pic" library="LineNoti">
+<doc>Arguments:
+|   path_file     |  Upload a image file to the LINE server.Supported image format is png and jpeg. |</doc>
+<arguments>
+<arg>D://Initial Training//Software coding//Software Testing//Robot//robotframework_workshop</arg>
+</arguments>
+<msg timestamp="20191215 18:04:19.585" level="INFO">[]</msg>
+<msg timestamp="20191215 18:04:19.586" level="FAIL">PermissionError: [Errno 13] Permission denied: 'D://Initial Training//Software coding//Software Testing//Robot//robotframework_workshop'</msg>
+<status status="FAIL" starttime="20191215 18:04:19.583" endtime="20191215 18:04:19.587"></status>
+</kw>
+<status status="FAIL" starttime="20191215 18:04:18.593" endtime="20191215 18:04:19.587"></status>
+</kw>
+<status status="FAIL" starttime="20191215 18:04:18.593" endtime="20191215 18:04:19.587"></status>
+</kw>
+<status status="FAIL" starttime="20191215 18:04:18.172" endtime="20191215 18:04:19.588"></status>
+</kw>
+<status status="FAIL" starttime="20191215 18:04:14.623" endtime="20191215 18:04:19.588"></status>
+</kw>
+<status status="FAIL" starttime="20191215 18:04:02.717" endtime="20191215 18:04:19.590" critical="yes">PermissionError: [Errno 13] Permission denied: 'D://Initial Training//Software coding//Software Testing//Robot//robotframework_workshop'</status>
 </test>
-<status status="FAIL" endtime="20191119 14:57:26.285" starttime="20191119 14:57:11.927"></status>
+<status status="FAIL" starttime="20191215 18:04:02.485" endtime="20191215 18:04:19.600"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="1" pass="0">Critical Tests</stat>
-<stat fail="1" pass="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="1" id="s1" name="Login Auto" pass="0">Login Auto</stat>
+<stat pass="0" fail="1" id="s1" name="Login Auto">Login Auto</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20191119 14:57:12.060" level="ERROR">Error in file '/Users/thanawitchaisuphapsirikun/Projects/Automate_Testing/RobotFramework/robotframework_workshop/resource.robot': Importing test library '/Users/thanawitchaisuphapsirikun/Projects/Automate_Testing/RobotFramework/robotframework_workshop/LineNoti.py' failed: ImportError: No module named parse
+<msg timestamp="20191215 18:04:02.505" level="ERROR">Error in file 'D:\Initial Training\Software coding\Software Testing\Robot\robotframework_workshop\Login_Auto.robot': Importing test library 'screenshot' failed: ModuleNotFoundError: No module named 'screenshot'
 Traceback (most recent call last):
-  File "/Users/thanawitchaisuphapsirikun/Projects/Automate_Testing/RobotFramework/robotframework_workshop/LineNoti.py", line 2, in &lt;module&gt;
-    import urllib.parse
+  None
 PYTHONPATH:
-  /Library/Frameworks/Python.framework/Versions/2.7/bin
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages</msg>
+  C:\Program Files\Python37\Scripts\robot.exe
+  c:\program files\python37\python37.zip
+  c:\program files\python37\DLLs
+  c:\program files\python37\lib
+  c:\program files\python37
+  C:\Users\Halel\AppData\Roaming\Python\Python37\site-packages
+  c:\program files\python37\lib\site-packages
+  c:\program files\python37\lib\site-packages\win32
+  c:\program files\python37\lib\site-packages\win32\lib
+  c:\program files\python37\lib\site-packages\Pythonwin</msg>
 </errors>
 </robot>

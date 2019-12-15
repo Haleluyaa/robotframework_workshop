@@ -1,5 +1,6 @@
 import requests
 import urllib.parse
+import glob
 __version__ = '0.0.1'
 
 class LineNoti():
@@ -50,6 +51,8 @@ class LineNoti():
         | Line Pic          |  *D://testCode.png*  |
 
         """
+        #filename_list = glob.glob(path_file+'*.png')
+        #print(filename_list)
         file_img = {'imageFile': open(path_file, 'rb')}
         msg = ({'message': ' '})
         LINE_HEADERS = {"Authorization":"Bearer "+self.LINE_ACCESS_TOKEN}
@@ -91,3 +94,5 @@ class LineNoti():
         session = requests.Session()
         session_post = session.post(self.URL_LINE, headers=LINE_HEADERS, data=msg)
         print(session_post.text)
+
+

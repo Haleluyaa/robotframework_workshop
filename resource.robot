@@ -7,9 +7,10 @@ ${SERVER}    https://www.facebook.com
 ${BROWSER}    chrome
 ${DELEY}    0
 ${VALID USERNAME}    haleluyaa.aki@gmail.com
-${VALID PASSWORD}    @Chai4704183;
+${VALID PASSWORD}    xxxxxxx
 ${line_token}    3twZqE76XkRIldgV4DhO0XohPKRA5OGeTrClGT53ie0
-${message}    Hello boy 
+${message}    Fail happen!!! 
+
 
 *** Keywords ***
 Open Browser To Login Page
@@ -24,12 +25,23 @@ Input Username
 
 Input Password
     [Arguments]    ${VALID PASSWORD}
-    Input Text    //input[@id='pass']    ${VALID USERNAME}
+    Input Text    //input[@id='pass']    ${VALID PASSWORD}
 
 Submit Credentials
     Click Button    //input[contains(@type, 'submit')]
 
+Verify Login sucessful
+    ${CheckRs} =    Run Keyword And Return Status    Page Should Contain Element    //div[text()='ธนาวิทย์ ชัยสุภาพสิริกุล']
+    Run Keyword If    not ${CheckRs}    Line Notification    ${line_token}    ${message}
+
+    #Ref. https://stackoverflow.com/questions/44758541/compare-false-expression-in-robot-framework-test-cases
+    #Log To Console    ${CheckRs}
+    #Run Keyword And Ignore Error| Keyword | locator...
+    #Line Notification ${line_token}    ${message}
+
 Line Notification
     [Arguments]    ${line_token}    ${message}
     Set Line Token    ${line_token}
-    Line Text    ${message}       
+    Line Text    ${message}
+    Line sticker    2    154
+    Line pic    D://Initial Training//Software coding//Software Testing//Robot//robotframework_workshop//selenium-screenshot-26.png      

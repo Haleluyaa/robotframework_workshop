@@ -13,6 +13,7 @@ Login with Valid Credentials Successful
     Input Username    ${username}
     Input Password    ${password}
     Submit Credentials
-    Line Notification    ${line_token}    ${message}    
+    Verify Login sucessful
+    #Line Notification    ${line_token}    ${message}    
 
     
