@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.7.5 on win32)" generated="20191211 16:20:39.167" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.7.5 on win32)" generated="20191216 16:32:34.671" rpa="false">
 <suite id="s1" name="Login Auto" source="D:\template_Works\robotframework_workshop\Login_Auto.robot">
-<test id="s1-t1" name="Valid Credentials">
+<test id="s1-t1" name="Valid Username Credentials">
 <kw name="Open Browser To Login Page" library="resource" type="setup">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
@@ -9,26 +9,130 @@
 <arg>${SERVER}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20191211 16:20:39.761" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com'.</msg>
-<status status="PASS" starttime="20191211 16:20:39.760" endtime="20191211 16:20:50.927"></status>
+<msg timestamp="20191216 16:32:34.942" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com'.</msg>
+<status status="PASS" starttime="20191216 16:32:34.942" endtime="20191216 16:32:43.657"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20191211 16:20:50.927" endtime="20191211 16:20:55.089"></status>
+<status status="PASS" starttime="20191216 16:32:43.658" endtime="20191216 16:32:47.809"></status>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELEY}</arg>
 </arguments>
-<status status="PASS" starttime="20191211 16:20:55.089" endtime="20191211 16:20:55.090"></status>
+<status status="PASS" starttime="20191216 16:32:47.810" endtime="20191216 16:32:47.810"></status>
 </kw>
-<status status="PASS" starttime="20191211 16:20:39.760" endtime="20191211 16:20:55.090"></status>
+<kw name="Import Test Data" library="resource">
+<kw name="Open Excel" library="ExcelLib">
+<doc>Opens the Excel file to read from the path provided in the file path parameter.</doc>
+<arguments>
+<arg>${excel_path}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.810" endtime="20191216 16:32:47.833"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelLib">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>Login_valid</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20191216 16:32:47.847" level="INFO">${row_count} = 4</msg>
+<status status="PASS" starttime="20191216 16:32:47.833" endtime="20191216 16:32:47.847"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${row_count}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.847" endtime="20191216 16:32:47.848"></status>
+</kw>
+<kw name="${i} IN RANGE [ 3 | ${row_count} ]" type="for">
+<kw name="${i} = 3" type="foritem">
+<kw name="Read Cell Data" library="ExcelLib">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Login_valid</arg>
+<arg>${i}</arg>
+<arg>2</arg>
+</arguments>
+<assign>
+<var>${usr_temp}</var>
+</assign>
+<msg timestamp="20191216 16:32:47.867" level="INFO">${usr_temp} = Thanawit.aki@gamail.com</msg>
+<status status="PASS" starttime="20191216 16:32:47.848" endtime="20191216 16:32:47.867"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${usr_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.867" endtime="20191216 16:32:47.867"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${VALID USERNAME}</arg>
+<arg>${usr_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.867" endtime="20191216 16:32:47.867"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${VALID USERNAME}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.868" endtime="20191216 16:32:47.868"></status>
+</kw>
+<kw name="Read Cell Data" library="ExcelLib">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Login_valid</arg>
+<arg>${i}</arg>
+<arg>3</arg>
+</arguments>
+<assign>
+<var>${ps_temp}</var>
+</assign>
+<msg timestamp="20191216 16:32:47.882" level="INFO">${ps_temp} = 123456.0</msg>
+<status status="PASS" starttime="20191216 16:32:47.868" endtime="20191216 16:32:47.882"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${ps_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.882" endtime="20191216 16:32:47.883"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${VALID PASSWORD}</arg>
+<arg>${ps_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.883" endtime="20191216 16:32:47.883"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${VALID PASSWORD}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:32:47.883" endtime="20191216 16:32:47.883"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:32:47.848" endtime="20191216 16:32:47.883"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:32:47.848" endtime="20191216 16:32:47.883"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:32:47.810" endtime="20191216 16:32:47.884"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:32:34.942" endtime="20191216 16:32:47.884"></status>
 </kw>
 <kw name="Login with Valid Credentials Successful">
 <arguments>
-<arg>${VALID USERNAME}</arg>
-<arg>${VALID PASSWORD}</arg>
+<arg>${VALID USERNAME}[0]</arg>
+<arg>${VALID PASSWORD}[0]</arg>
 </arguments>
 <kw name="Input Username" library="resource">
 <arguments>
@@ -40,95 +144,190 @@
 <arg>//input[@name='email']</arg>
 <arg>${VALID USERNAME}</arg>
 </arguments>
-<msg timestamp="20191211 16:20:55.097" level="INFO">Typing text 'haleluyaa.aki@gmail.com' into text field '//input[@name='email']'.</msg>
-<status status="PASS" starttime="20191211 16:20:55.097" endtime="20191211 16:20:55.326"></status>
+<msg timestamp="20191216 16:32:47.885" level="INFO">Typing text 'Thanawit.aki@gamail.com' into text field '//input[@name='email']'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20191216 16:32:48.347" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20191216 16:32:47.931" endtime="20191216 16:32:48.347"></status>
 </kw>
-<status status="PASS" starttime="20191211 16:20:55.096" endtime="20191211 16:20:55.326"></status>
+<msg timestamp="20191216 16:32:48.349" level="FAIL">TypeError: sequence item 0: expected str instance, CDispatch found</msg>
+<status status="FAIL" starttime="20191216 16:32:47.884" endtime="20191216 16:32:48.349"></status>
 </kw>
-<kw name="Input Password" library="resource">
+<status status="FAIL" starttime="20191216 16:32:47.884" endtime="20191216 16:32:48.349"></status>
+</kw>
+<status status="FAIL" starttime="20191216 16:32:47.884" endtime="20191216 16:32:48.349"></status>
+</kw>
+<status status="FAIL" starttime="20191216 16:32:34.941" endtime="20191216 16:32:48.350" critical="yes">TypeError: sequence item 0: expected str instance, CDispatch found</status>
+</test>
+<test id="s1-t2" name="Valid Phone Credentials">
+<kw name="Open Browser To Login Page" library="resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>${password}</arg>
+<arg>${SERVER}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20191216 16:32:48.353" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com'.</msg>
+<status status="PASS" starttime="20191216 16:32:48.353" endtime="20191216 16:32:58.007"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20191216 16:32:58.007" endtime="20191216 16:33:02.292"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELEY}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.293" endtime="20191216 16:33:02.295"></status>
+</kw>
+<kw name="Import Test Data" library="resource">
+<kw name="Open Excel" library="ExcelLib">
+<doc>Opens the Excel file to read from the path provided in the file path parameter.</doc>
+<arguments>
+<arg>${excel_path}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.297" endtime="20191216 16:33:02.335"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelLib">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>Login_valid</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20191216 16:33:02.351" level="INFO">${row_count} = 4</msg>
+<status status="PASS" starttime="20191216 16:33:02.335" endtime="20191216 16:33:02.351"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${row_count}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.351" endtime="20191216 16:33:02.352"></status>
+</kw>
+<kw name="${i} IN RANGE [ 3 | ${row_count} ]" type="for">
+<kw name="${i} = 3" type="foritem">
+<kw name="Read Cell Data" library="ExcelLib">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Login_valid</arg>
+<arg>${i}</arg>
+<arg>2</arg>
+</arguments>
+<assign>
+<var>${usr_temp}</var>
+</assign>
+<msg timestamp="20191216 16:33:02.365" level="INFO">${usr_temp} = Thanawit.aki@gamail.com</msg>
+<status status="PASS" starttime="20191216 16:33:02.354" endtime="20191216 16:33:02.365"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${usr_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.365" endtime="20191216 16:33:02.366"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${VALID USERNAME}</arg>
+<arg>${usr_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.366" endtime="20191216 16:33:02.366"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${VALID USERNAME}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.366" endtime="20191216 16:33:02.367"></status>
+</kw>
+<kw name="Read Cell Data" library="ExcelLib">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>Login_valid</arg>
+<arg>${i}</arg>
+<arg>3</arg>
+</arguments>
+<assign>
+<var>${ps_temp}</var>
+</assign>
+<msg timestamp="20191216 16:33:02.379" level="INFO">${ps_temp} = 123456.0</msg>
+<status status="PASS" starttime="20191216 16:33:02.367" endtime="20191216 16:33:02.380"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${ps_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.380" endtime="20191216 16:33:02.384"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${VALID PASSWORD}</arg>
+<arg>${ps_temp}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.385" endtime="20191216 16:33:02.385"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${VALID PASSWORD}</arg>
+</arguments>
+<status status="PASS" starttime="20191216 16:33:02.385" endtime="20191216 16:33:02.400"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:33:02.353" endtime="20191216 16:33:02.401"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:33:02.352" endtime="20191216 16:33:02.401"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:33:02.296" endtime="20191216 16:33:02.401"></status>
+</kw>
+<status status="PASS" starttime="20191216 16:32:48.353" endtime="20191216 16:33:02.401"></status>
+</kw>
+<kw name="Login with Valid Credentials Successful">
+<arguments>
+<arg>${VALID USERNAME}[1]</arg>
+<arg>${VALID PASSWORD}[1]</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
 </arguments>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>//input[@name='pass']</arg>
-<arg>${VALID PASSWORD}</arg>
+<arg>//input[@name='email']</arg>
+<arg>${VALID USERNAME}</arg>
 </arguments>
-<msg timestamp="20191211 16:20:55.326" level="INFO">Typing text '@Chai4704183;' into text field '//input[@name='pass']'.</msg>
-<status status="PASS" starttime="20191211 16:20:55.326" endtime="20191211 16:20:55.485"></status>
+<msg timestamp="20191216 16:33:02.405" level="INFO">Typing text 'Thanawit.aki@gamail.com' into text field '//input[@name='email']'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20191216 16:33:02.941" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-40.png"&gt;&lt;img src="selenium-screenshot-40.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20191216 16:33:02.449" endtime="20191216 16:33:02.942"></status>
 </kw>
-<status status="PASS" starttime="20191211 16:20:55.326" endtime="20191211 16:20:55.485"></status>
+<msg timestamp="20191216 16:33:02.942" level="FAIL">TypeError: sequence item 0: expected str instance, CDispatch found</msg>
+<status status="FAIL" starttime="20191216 16:33:02.402" endtime="20191216 16:33:02.942"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${password}</arg>
-</arguments>
-<msg timestamp="20191211 16:20:55.486" level="INFO">@Chai4704183;</msg>
-<status status="PASS" starttime="20191211 16:20:55.485" endtime="20191211 16:20:55.486"></status>
+<status status="FAIL" starttime="20191216 16:33:02.402" endtime="20191216 16:33:02.942"></status>
 </kw>
-<kw name="Submit Credentials" library="resource">
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
-<arg>//input[contains(@type, 'submit')]</arg>
-</arguments>
-<msg timestamp="20191211 16:20:55.486" level="INFO">Clicking button '//input[contains(@type, 'submit')]'.</msg>
-<status status="PASS" starttime="20191211 16:20:55.486" endtime="20191211 16:21:10.247"></status>
+<status status="FAIL" starttime="20191216 16:33:02.401" endtime="20191216 16:33:02.942"></status>
 </kw>
-<status status="PASS" starttime="20191211 16:20:55.486" endtime="20191211 16:21:10.247"></status>
-</kw>
-<kw name="Line Notification" library="resource">
-<arguments>
-<arg>${line_token}</arg>
-<arg>${message}</arg>
-</arguments>
-<kw name="Set Line Token" library="LineNoti">
-<doc>Arguments:
-| line_token      |  An access token for authentication  |</doc>
-<arguments>
-<arg>${line_token}</arg>
-</arguments>
-<status status="PASS" starttime="20191211 16:21:10.247" endtime="20191211 16:21:10.247"></status>
-</kw>
-<kw name="Line Text" library="LineNoti">
-<doc>Arguments:
-|   message     |       1000 characters max  |</doc>
-<arguments>
-<arg>${message}</arg>
-</arguments>
-<msg timestamp="20191211 16:21:10.747" level="INFO">{"status":200,"message":"ok"}</msg>
-<status status="PASS" starttime="20191211 16:21:10.247" endtime="20191211 16:21:10.747"></status>
-</kw>
-<kw name="Line Sticker" library="LineNoti">
-<doc>Arguments:
-|   PackageId     |  https://devdocs.line.me/files/sticker_list.pdf |
-|   StickerId     |  https://devdocs.line.me/files/sticker_list.pdf |</doc>
-<arguments>
-<arg>2</arg>
-<arg>507</arg>
-</arguments>
-<msg timestamp="20191211 16:21:11.259" level="INFO">{"status":200,"message":"ok"}</msg>
-<status status="PASS" starttime="20191211 16:21:10.747" endtime="20191211 16:21:11.259"></status>
-</kw>
-<status status="PASS" starttime="20191211 16:21:10.247" endtime="20191211 16:21:11.259"></status>
-</kw>
-<status status="PASS" starttime="20191211 16:20:55.092" endtime="20191211 16:21:11.260"></status>
-</kw>
-<status status="PASS" starttime="20191211 16:20:39.760" endtime="20191211 16:21:11.260" critical="yes"></status>
+<status status="FAIL" starttime="20191216 16:32:48.352" endtime="20191216 16:33:02.943" critical="yes">TypeError: sequence item 0: expected str instance, CDispatch found</status>
 </test>
-<status status="PASS" starttime="20191211 16:20:39.172" endtime="20191211 16:21:11.264"></status>
+<status status="FAIL" starttime="20191216 16:32:34.673" endtime="20191216 16:33:02.946"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="2">Critical Tests</stat>
+<stat pass="0" fail="2">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Login Auto">Login Auto</stat>
+<stat pass="0" fail="2" id="s1" name="Login Auto">Login Auto</stat>
 </suite>
 </statistics>
 <errors>

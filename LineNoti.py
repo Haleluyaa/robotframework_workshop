@@ -1,5 +1,7 @@
 import requests
 import urllib.parse
+from os import listdir
+from os.path import isfile, join
 __version__ = '0.0.1'
 
 class LineNoti():
@@ -50,7 +52,15 @@ class LineNoti():
         | Line Pic          |  *D://testCode.png*  |
 
         """
-        file_img = {'imageFile': open(path_file, 'rb')}
+        list_pics = [p for p in listdir(path_file) if isfile(join(path_file, p))]
+        #input all file from path_file Directory
+        matching = [s for s in list_pics if "selenium-screenshot" in s]
+        #identify defect pic to another list
+        pic_number = str(len(matching))
+        pic_path = path_file +"/selenium-screenshot-"+pic_number+".png"
+        #set current pic path name
+
+        file_img = {'imageFile': open(pic_path, 'rb')}
         msg = ({'message': ' '})
         LINE_HEADERS = {"Authorization":"Bearer "+self.LINE_ACCESS_TOKEN}
         session = requests.Session()
@@ -91,3 +101,5 @@ class LineNoti():
         session = requests.Session()
         session_post = session.post(self.URL_LINE, headers=LINE_HEADERS, data=msg)
         print(session_post.text)
+
+
