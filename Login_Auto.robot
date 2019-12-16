@@ -12,6 +12,7 @@ Login with Valid Credentials Successful
     [Arguments]    ${username}    ${password}
     Input Username    ${username}
     Input Password    ${password}
+    Log    ${password}
     Submit Credentials
     Line Notification    ${line_token}    ${message}    
 
