@@ -16,6 +16,7 @@ Login with Valid Credentials Successful
     Log    ${password}
     Submit Credentials
     Verify Login sucessful
+    Close Browser
      
 
     

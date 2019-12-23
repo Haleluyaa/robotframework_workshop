@@ -293,3 +293,4 @@ class ExcelLib():
                 return chk_value
 
         return None # Any case not found
+
