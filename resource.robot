@@ -13,6 +13,7 @@ ${DELEY}    0
 ${line_token}    3twZqE76XkRIldgV4DhO0XohPKRA5OGeTrClGT53ie0
 ${message}    Fail happen!!!
 ${excel_path}    D:\\template_Works\\robotframework_workshop\\Facebook_testingxlsx.xlsx
+@{Verify_Login}    
 #${row_count}    5
 
 *** Keywords ***
@@ -40,7 +41,12 @@ Submit Credentials
     
 
 Verify Login sucessful
-    ${CheckRs} =    Run Keyword And Return Status    Page Should Contain Element    //div[text()='ธนาวิทย์ ชัยสุภาพสิริกุล']
+    [Arguments]    ${Verify_name}
+    ${xPath_Temp}    Set Variable    //div[text()='
+    ${varify_Temp}    catenate    SEPARATOR=    ${Verify_name}    ']
+    ${verifyPath}    catenate    SEPARATOR=    ${xPath_Temp}    ${varify_Temp}
+    Log To Console    ${verifyPath}
+    ${CheckRs} =    Run Keyword And Return Status    Page Should Contain Element    ${verifyPath}
     Run Keyword If    not ${CheckRs}    Line Notification    ${line_token}    ${message}
 
     #Ref. https://stackoverflow.com/questions/44758541/compare-false-expression-in-robot-framework-test-cases
@@ -67,9 +73,14 @@ Import Test Data
     \    Append To List    ${VALID USERNAME}    ${usr_temp}                    
     \    ${ps_temp} =    Read Cell Data    Login_valid    ${i}    3 
     \    ${ps_temp} =    Convert To String    ${ps_temp}  
-    \    Append To List    ${VALID PASSWORD}    ${ps_temp} 
+    \    Append To List    ${VALID PASSWORD}    ${ps_temp}
+    \    ${vu_temp} =    Read Cell Data    Login_valid    ${i}    4
+    \    ${vu_temp} =    Convert To String    ${vu_temp}
+    \    Append To List    ${Verify_Login}    ${vu_temp}
+    \    Log to console    ${vu_temp} 
     Log to console    ${VALID USERNAME}    
     Log to console    ${VALID PASSWORD}
+    Log to console    ${Verify_Login}
     Close Excel
     #${VALID_user} =    Convert To String    ${VALID USERNAME}
     #${VALID_pw} =    Convert To String    ${VALID PASSWORD} 
